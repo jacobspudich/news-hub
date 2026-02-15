@@ -1,0 +1,16 @@
+# API Keys - DO NOT COMMIT
+config.js
+
+# VS Code settings
+.vscode/
+settings.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
