@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-medium">
+    <div class="top-header">
+        <div class="header-utility">
+            <div class="utility-bar">
+                <div class="utility-logo">NEWSHUB</div>
+                <div class="utility-right">
+                    <button class="icon-btn" id="refreshBtn" title="Refresh News"></button>
+                    <div style="position: relative;">
+                        <button class="menu-btn" id="menuBtn"></button>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="menu-item" id="layoutMenuItem">Toggle Grid/List View</div>
+                            <div class="menu-item" id="savedMenuItem">Saved Articles</div>
+                            <div class="menu-item" id="historyMenuItem">Reading History</div>
+                            <div class="menu-item" id="themeMenuItem">Toggle Dark Mode</div>
+                            <div class="menu-item" id="settingsMenuItem">Settings</div>
+                        </div>
+                    </div>
+                    <div class="date-display" id="dateDisplay"></div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="nav-container" id="navContainer">
+                <div class="nav-item active" data-category="all">All News</div>
+                <div class="nav-item" data-category="politics">Politics</div>
+                <div class="nav-item" data-category="business">Business</div>
+                <div class="nav-item" data-category="technology">Technology</div>
+                <div class="nav-item" data-category="sports">Sports</div>
+                <div class="nav-item" data-category="world">World</div>
+                <div class="nav-item" data-category="health">Health</div>
+                <div class="nav-item" data-category="science">Science</div>
+                <div class="nav-item" data-category="entertainment">Entertainment</div>
+                <div class="nav-item" data-category="lifestyle">Lifestyle</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Settings</div>
+                <div class="modal-subtitle">Customize your NewsHub experience</div>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <label class="settings-label">Daily Reading Goal</label>
+                    <input type="number" id="dailyGoalInput" class="settings-input" min="1" max="50" value="10">
+                    <span style="font-size: 12px; color: #666; margin-left: 8px;">articles per day</span>
+                </div>
+
+                <div class="settings-section">
+                    <label class="settings-label">Font Size</label>
+                    <div class="font-size-btns">
+                        <button class="font-btn" data-size="small">Small</button>
+                        <button class="font-btn active" data-size="medium">Medium</button>
+                        <button class="font-btn" data-size="large">Large</button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <label class="settings-label">Visible Categories</label>
+                    <div class="category-toggles" id="categoryToggles"></div>
+                </div>
+
+                <div class="settings-section">
+                    <label class="settings-label">Weekly Digest Email</label>
+                    <input type="email" id="emailInput" class="email-input" placeholder="Enter your email">
+                    <button class="subscribe-btn" id="subscribeBtn">Subscribe to Weekly Digest</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close" id="settingsClose">Save & Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saved Articles Modal -->
+    <div class="modal" id="savedModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Saved Articles</div>
+                <div class="modal-subtitle">Your bookmarked stories</div>
+            </div>
+            <div class="modal-body" id="savedBody"></div>
+            <div class="modal-footer">
+                <button class="modal-close" id="savedClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading History Modal -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Reading History</div>
+                <div class="modal-subtitle">Articles you've read recently</div>
+            </div>
+            <div class="modal-body" id="historyBody"></div>
+            <div class="modal-footer">
+                <button class="modal-close" id="historyClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Briefing Modal -->
+    <div class="modal" id="briefingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Your Daily Briefing</div>
+                <div class="modal-subtitle">The 10 most important stories today</div>
+            </div>
+            <div class="modal-body" id="briefingBody"></div>
+            <div class="modal-footer">
+                <button class="modal-close" id="briefingClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="reading-banner">
+            <div class="reading-text">
+                <span class="reading-count" id="readCount">0 of 10 articles read today</span>
+                <span class="streak-badge" id="streakBadge">0 DAY STREAK</span>
+            </div>
+            <button class="briefing-link" id="briefingBtn">View Daily Briefing →</button>
+        </div>
+
+        <div id="errorContainer"></div>
+
+        <div id="sectionsContainer">
+            <div style="text-align: center; padding: 60px; color: #666;">Loading stories...</div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
